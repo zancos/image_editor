@@ -7,11 +7,16 @@
   },
   "dependencies": {
     "react": "^19.0.0-rc-b769f3ef-20240722",
-    "react-dom": "^19.0.0-rc-b769f3ef-20240722"
+    "react-dom": "^19.0.0-rc-b769f3ef-20240722",
+    "@google/genai": "^1.30.0",
+    "lucide-react": "^0.555.0"
   },
   "devDependencies": {
     "typescript": "^5.0.0",
     "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0"
+    "@types/react-dom": "^18.3.0",
+    "@types/node": "^20.0.0",
+    "vite": "^5.0.0",
+    "@vitejs/plugin-react": "^4.0.0"
   }
 }

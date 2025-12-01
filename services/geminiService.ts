@@ -1,5 +1,6 @@
 
-import { GoogleGenAI } from "@google/genai";
+
+import { GoogleGenAI, Part } from "@google/genai";
 import { EditResponse } from "../types";
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
@@ -57,7 +58,7 @@ export const editImageWithGemini = async (
       return { success: true, image: generatedImageBase64 };
     } else {
       // If no image found, maybe it returned text explaining why
-      const textPart = parts.find(p => p.text);
+      const textPart = parts.find((p: Part) => p.text);
       return { 
         success: false, 
         error: textPart?.text || "The model processed the request but did not return an image. Try rephrasing your prompt or ensure the request is valid for the provided images." 
