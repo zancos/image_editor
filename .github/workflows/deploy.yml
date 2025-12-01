@@ -1,0 +1,39 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Trigger on push to the main branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Use a recent Node.js version
+
+      - name: Install dependencies 📥
+        run: npm install
+
+      - name: Build 🏗️
+        run: npm run build
+      
+      - name: Copy index.html and metadata.json to dist/ 📋
+        run: |
+          cp index.html dist/
+          cp metadata.json dist/ # Copy other essential root files if needed by the deployed app
+
+      - name: Deploy to GitHub Pages 🚀
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist # Publish the contents of the dist folder
+          cname: # Add your custom domain here, e.g., 'www.example.com'
+          # If you want to use a specific branch for GitHub Pages, e.g., 'gh-pages'
+          # publish_branch: gh-pages 

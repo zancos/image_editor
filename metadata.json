@@ -1,0 +1,5 @@
+{
+  "name": "Nano Banana Editor",
+  "description": "An AI-powered image editing tool using the Gemini 2.5 Flash Image model. Upload an image and use natural language to edit it.",
+  "requestFramePermissions": []
+}
